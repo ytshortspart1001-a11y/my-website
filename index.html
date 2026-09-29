@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Momujhwe Coffee Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- =========================
+         WELCOME / LOADING SCREEN
+    ========================== -->
+    <div id="welcomeScreen">
+        <div class="logo-animation">
+            ☕
+        </div>
+
+        <h1>Momujhwe Coffee Shop</h1>
+
+        <p>Welcome to our Coffee Shop ❤️</p>
+
+        <div class="loading-bar">
+            <span></span>
+        </div>
+
+        <small>Fresh Taste • Fresh Mood</small>
+    </div>
+
+
+    <!-- =========================
+         MAIN APP
+    ========================== -->
+    <div id="mainApp">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="logo">
+                ☕ <span>Momujhwe</span>
+            </div>
+
+            <button class="cart-btn" onclick="openCart()">
+                🛒 Cart
+                <span id="cartCount">0</span>
+            </button>
+
+        </header>
+
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="tag">WELCOME TO MOMUJHWE</span>
+
+                <h1>
+                    Fresh Coffee.<br>
+                    Fresh Mood.
+                </h1>
+
+                <p>
+                    Enjoy delicious tea, coffee, snacks & frozen items
+                    in Dhanbad, Jharkhand.
+                </p>
+
+                <div class="hero-buttons">
+                    <button onclick="scrollToMenu()">
+                        Order Now ☕
+                    </button>
+
+                    <button class="outline-btn" onclick="openBooking()">
+                        Book Table 🪑
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK SERVICES -->
+        <section class="services">
+
+            <div class="service-card">
+                <span>☕</span>
+                <h3>Fresh Tea & Coffee</h3>
+                <p>Freshly prepared</p>
+            </div>
+
+            <div class="service-card">
+                <span>🍟</span>
+                <h3>Snacks</h3>
+                <p>Tasty & crispy</p>
+            </div>
+
+            <div class="service-card">
+                <span>❄️</span>
+                <h3>Frozen Items</h3>
+                <p>Delicious frozen food</p>
+            </div>
+
+            <div class="service-card">
+                <span>🛵</span>
+                <h3>Online Order</h3>
+                <p>Order easily</p>
+            </div>
+
+        </section>
+
+
+        <!-- MENU -->
+        <section id="menu" class="menu-section">
+
+            <div class="section-title">
+                <span>OUR MENU</span>
+                <h2>Choose Your Favourite</h2>
+                <p>Tea, snacks & frozen items</p>
+            </div>
+
+
+            <!-- CATEGORY BUTTONS -->
+            <div class="categories">
+
+                <button class="category active" onclick="filterMenu('all', this)">
+                    All
+                </button>
+
+                <button class="category" onclick="filterMenu('tea', this)">
+                    ☕ Tea
+                </button>
+
+                <button class="category" onclick="filterMenu('snacks', this)">
+                    🍟 Snacks
+                </button>
+
+                <button class="category" onclick="filterMenu('frozen', this)">
+                    ❄️ Frozen
+                </button>
+
+            </div>
+
+
+            <!-- MENU ITEMS -->
+            <div id="menuItems" class="menu-grid">
+
+
+                <!-- ITEM 1 -->
+                <div class="food-card" data-category="tea">
+
+                    <div class="food-image">☕</div>
+
+                    <h3>Masala Tea</h3>
+
+                    <p>Hot & refreshing masala tea</p>
+
+                    <div class="food-bottom">
+                        <strong>₹30</strong>
+
+                        <button onclick="addToCart('Masala Tea', 30)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM 2 -->
+                <div class="food-card" data-category="tea">
+
+                    <div class="food-image">🍵</div>
+
+                    <h3>Green Tea</h3>
+
+                    <p>Healthy refreshing green tea</p>
+
+                    <div class="food-bottom">
+                        <strong>₹40</strong>
+
+                        <button onclick="addToCart('Green Tea', 40)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM 3 -->
+                <div class="food-card" data-category="tea">
+
+                    <div class="food-image">🥛</div>
+
+                    <h3>Milk Tea</h3>
+
+                    <p>Classic Indian milk tea</p>
+
+                    <div class="food-bottom">
+                        <strong>₹30</strong>
+
+                        <button onclick="addToCart('Milk Tea', 30)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM 4 -->
+                <div class="food-card" data-category="tea">
+
+                    <div class="food-image">☕</div>
+
+                    <h3>Cappuccino</h3>
+
+                    <p>Rich and creamy coffee</p>
+
+                    <div class="food-bottom">
+                        <strong>₹90</strong>
+
+                        <button onclick="addToCart('Cappuccino', 90)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM 5 -->
+                <div class="food-card" data-category="tea">
+
+                    <div class="food-image">☕</div>
+
+                    <h3>Cold Coffee</h3>
+
+                    <p>Chilled creamy cold coffee</p>
+
+                    <div class="food-bottom">
+                        <strong>₹100</strong>
+
+                        <button onclick="addToCart('Cold Coffee', 100)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM 6 -->
+                <div class="food-card" data-category="snacks">
+
+                    <div class="food-image">🍟</div>
+
+                    <h3>French Fries</h3>
+
+                    <p>Crispy golden fries</p>
+
+                    <div class="food-bottom">
+                        <strong>₹80</strong>
+
+                        <button onclick="addToCart('French Fries', 80)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM 7 -->
+                <div class="food-card" data-category="snacks">
+
+                    <div class="food-image">🍔</div>
+
+                    <h3>Veg Burger</h3>
+
+                    <p>Fresh tasty veg burger</p>
+
+                    <div class="food-bottom">
+                        <strong>₹100</strong>
+
+                        <button onclick="addToCart('Veg Burger', 100)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM 8 -->
+                <div class="food-card" data-category="snacks">
+
+                    <div class="food-image">🥪</div>
+
+                    <h3>Grilled Sandwich</h3>
+
+                    <p>Hot grilled sandwich</p>
+
+                    <div class="food-bottom">
+                        <strong>₹90</strong>
+
+                        <button onclick="addToCart('Grilled Sandwich', 90)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM 9 -->
+                <div class="food-card" data-category="frozen">
+
+                    <div class="food-image">🍗</div>
+
+                    <h3>Chicken Nuggets</h3>
+
+                    <p>Crispy chicken nuggets</p>
+
+                    <div class="food-bottom">
+                        <strong>₹150</strong>
+
+                        <button onclick="addToCart('Chicken Nuggets', 150)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- ITEM 10 -->
+                <div class="food-card" data-category="frozen">
+
+                    <div class="food-image">🍕</div>
+
+                    <h3>Frozen Pizza</h3>
+
+                    <p>Cheesy delicious pizza</p>
+
+                    <div class="food-bottom">
+                        <strong>₹180</strong>
+
+                        <button onclick="addToCart('Frozen Pizza', 180)">
+                            + Add
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TABLE BOOKING -->
+        <section class="booking-section">
+
+            <div class="booking-box">
+
+                <div>
+                    <span class="tag">TABLE BOOKING</span>
+
+                    <h2>Book Your Table</h2>
+
+                    <p>
+                        Planning a coffee date or meeting?
+                        Reserve your table easily.
+                    </p>
+                </div>
+
+                <button onclick="openBooking()">
+                    Book Table 🪑
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOCATION -->
+        <section class="location-section">
+
+            <div class="section-title">
+                <span>VISIT US</span>
+                <h2>Our Location</h2>
+            </div>
+
+            <div class="location-card">
+
+                <div class="location-icon">
+                    📍
+                </div>
+
+                <div>
+                    <h3>Momujhwe Coffee Shop</h3>
+                    <p>Dhanbad, Jharkhand, India</p>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Dhanbad,Jharkhand"
+                        target="_blank"
+                    >
+                        Open in Google Maps →
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="contact-section">
+
+            <div class="section-title">
+                <span>CONTACT US</span>
+                <h2>We Are Here For You</h2>
+            </div>
+
+            <div class="contact-buttons">
+
+                <a href="tel:9856321254">
+                    📞 Call Us
+                </a>
+
+                <a href="https://wa.me/919856321254" target="_blank">
+                    💬 WhatsApp
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <div class="footer-logo">
+                ☕ Momujhwe Coffee Shop
+            </div>
+
+            <p>
+                Fresh Taste • Fresh Mood • Dhanbad
+            </p>
+
+            <p class="copyright">
+                © 2026 Momujhwe Coffee Shop. All Rights Reserved.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =========================
+         CART MODAL
+    ========================== -->
+    <div id="cartModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeCart()">×</button>
+
+            <h2>🛒 Your Cart</h2>
+
+            <div id="cartItems"></div>
+
+            <div class="cart-total">
+                Total: ₹<span id="cartTotal">0</span>
+            </div>
+
+            <button class="checkout-btn" onclick="openCheckout()">
+                Proceed to Order
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         CHECKOUT MODAL
+    ========================== -->
+    <div id="checkoutModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeCheckout()">×</button>
+
+            <h2>📦 Place Your Order</h2>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Your Name"
+            >
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="Phone Number"
+            >
+
+            <textarea
+                id="customerAddress"
+                placeholder="Delivery Address"
+            ></textarea>
+
+            <h3>Payment Method</h3>
+
+            <div class="payment-options">
+
+                <label>
+                    <input type="radio" name="payment" value="Cash" checked>
+                    💵 Cash
+                </label>
+
+                <label>
+                    <input type="radio" name="payment" value="Card">
+                    💳 Card
+                </label>
+
+                <label>
+                    <input type="radio" name="payment" value="Online">
+                    📱 Online
+                </label>
+
+            </div>
+
+            <button class="checkout-btn" onclick="placeOrder()">
+                Confirm Order
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TABLE BOOKING MODAL
+    ========================== -->
+    <div id="bookingModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeBooking()">×</button>
+
+            <h2>🪑 Book Your Table</h2>
+
+            <input
+                type="text"
+                id="bookingName"
+                placeholder="Your Name"
+            >
+
+            <input
+                type="tel"
+                id="bookingPhone"
+                placeholder="Phone Number"
+            >
+
+            <input
+                type="date"
+                id="bookingDate"
+            >
+
+            <input
+                type="time"
+                id="bookingTime"
+            >
+
+            <input
+                type="number"
+                id="guestNumber"
+                placeholder="Number of Guests"
+                min="1"
+            >
+
+            <button class="checkout-btn" onclick="bookTable()">
+                Confirm Table Booking
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
